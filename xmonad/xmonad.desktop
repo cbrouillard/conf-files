@@ -1,0 +1,9 @@
+#/usr/share/xsessions/xmonad.desktop
+[Desktop Entry]
+Name=Xmonad
+Comment=This session logs you into Ubuntu
+Exec=/home/cyril/.cabal/bin/xmonad
+TryExec=/home/cyril/.xinitrc
+Icon=
+Type=Application
+X-Ubuntu-Gettext-Domain=gnome-session-3.0
