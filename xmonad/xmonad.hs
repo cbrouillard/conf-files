@@ -37,7 +37,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) =
 
 -- Layouts
 myLayout = (toggleLayouts $ noBorders Full) $ -- toggle fullscreen
-  (noBorders tabbed ||| Grid ||| layoutHook defaultConfig)
+  (layoutHook defaultConfig ||| noBorders tabbed ||| Grid)
   where tabbed = named "Tabbed" $ simpleTabbed
 
 main = do
