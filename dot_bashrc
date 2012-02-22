@@ -103,8 +103,21 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
 fi
 
 export JAVA_HOME="/home/cyril/Coding/Tools/jdk1.6.0_29/"
-export MAVEN_HOME="/home/cyril/Coding/Tools/apache-maven-3.0.3/bin"
+export MAVEN_HOME="/home/cyril/Coding/Tools/apache-maven-3.0.4/bin"
 export GRAILS_HOME="/home/cyril/Coding/Tools/grails-2.0.0"
-export CABAL_HOME="~/.cabal/bin"
+export CABAL_HOME="/home/cyril/.cabal/bin/"
 export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME:$CABAL_HOME:$GRAILS_HOME/bin"
 export HAMDIR=/home/cyril/Coding/others/devkit/ham-271-linux-full
+
+# http://henrik.nyh.se/2008/12/git-dirty-prompt
+# http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
+# username@Machine ~/dev/dir[master]$ # clean working directory
+# username@Machine ~/dev/dir[master*]$ # dirty working directory
+
+function parse_git_dirty {
+  [[ $(git status 2> /dev/null | tail -n1) != "nothing to commit (working directory clean)" ]] && echo "*"
+}
+function parse_git_branch {
+  git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
+}
+export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
