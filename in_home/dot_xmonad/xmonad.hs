@@ -34,7 +34,8 @@ newKeys x = M.union (M.fromList (myKeys x)) (keys azertyConfig x)
 myKeys conf@(XConfig {XMonad.modMask = modMask}) =
     [ ((modMask .|. shiftMask, xK_l), spawn "gnome-screensaver-command --lock")
     , ((modMask, xK_quoteleft), spawn "rotatexkbmap") -- with qwerty keyboard
-    , ((modMask, xK_twosuperior), spawn "rotatexkbmap") -- with azerty keyboard   
+    , ((modMask, xK_twosuperior), spawn "rotatexkbmap") -- with azerty keyboard  
+    , ((modMask, xK_p), spawn "exe=`dmenu_run -nb black -nf yellow -sf yellow` && eval \"exec $exe\"") 
 	]
 
 -- Layouts
