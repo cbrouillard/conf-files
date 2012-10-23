@@ -25,15 +25,17 @@ myManageHook = composeAll
     [ resource  =? "Firefox"       --> doFloat
     , resource  =? "Mozilla Firefox"       --> doFloat
     , className  =? "Firefox"       --> doFloat
+    , resource  =? "Do"   --> doIgnore
     ]
 
+myWorkspaces  = ["1:www","2:dev","3:server","4:doc","5","6", "7", "8", "9:chat"]
 
 newKeys x = M.union (M.fromList (myKeys x)) (keys azertyConfig x)
 myKeys conf@(XConfig {XMonad.modMask = modMask}) =
     [ ((modMask .|. shiftMask, xK_l), spawn "gnome-screensaver-command --lock")
     , ((modMask, xK_quoteleft), spawn "rotatexkbmap") -- with qwerty keyboard
-    , ((modMask, xK_twosuperior), spawn "rotatexkbmap") -- with azerty keyboard
-    ]
+    , ((modMask, xK_twosuperior), spawn "rotatexkbmap") -- with azerty keyboard   
+	]
 
 -- Layouts
 myLayout = (toggleLayouts $ noBorders Full) $ -- toggle fullscreen
@@ -43,10 +45,11 @@ myLayout = (toggleLayouts $ noBorders Full) $ -- toggle fullscreen
 main = do
       xmproc <- spawnPipe "xmobar"
       xmonad $ withUrgencyHook NoUrgencyHook $ azertyConfig {
-                       --   manageHook = myManageHook <+> manageHook xfceConfig,
+                          --manageHook = myManageHook <+> manageHook defaultConfig,
                           manageHook = manageDocks <+> manageHook defaultConfig,
                           keys = newKeys,
                           modMask    = mod4Mask,
+                          workspaces = myWorkspaces,
                           layoutHook = smartBorders (avoidStruts $ myLayout),
                           startupHook = setWMName "LG3D",
                           terminal = "urxvt",

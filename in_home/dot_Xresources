@@ -5,7 +5,7 @@
 *font: xft:Inconsolata:pixelsize=12
 
 ! *background is too generic and affect QT interfaces as well
-urxvt*background: #000000
+!! urxvt*background: #000000
 xterm*background: #000000
 urxvt*foreground: #aaaaaa
 xterm*foreground: #aaaaaa
@@ -76,3 +76,6 @@ URxvt.keysym.Control-Left: \033[1;5D
 URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Page_Up: \033[5;5~
 URxvt.keysym.Control-Page_Down: \033[6;5~
+
+urxvt*transparent: true
+urxvt*shading: 30
