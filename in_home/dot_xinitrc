@@ -10,5 +10,10 @@ setxkbmap fr
 gnome-screensaver &
 gnome-settings-daemon &
 trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 2 --transparent true --alpha 0 --tint 0x000000 --height 16 & 
+
+# Start XMonad
+eval `ssh-agent`
+gnome-terminal -e ssh-add ~/.ssh/id_dsa
+
 exec ck-launch-session xmonad
 pkill -HUP ssh-agent
