@@ -1,7 +1,7 @@
 Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
-       , bgColor = "black"
-       , fgColor = "grey"
-       , position = TopW L 90
+       , bgColor = "#555555"
+       , fgColor = "white"
+       , position = TopW L 96
        , lowerOnStart = False
        , commands = [ Run Network "eth0" ["-L","0","-H","32","--normal","green","--high","red"] 10
                     , Run Cpu ["-L","3","-H","50","--normal","green","--high","red"] 10
@@ -9,9 +9,10 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
                     , Run Swap [] 10
 		    , Run BatteryP ["BAT0", "BAT1"] ["-t", "<acstatus>", "-L", "10", "-H", "80", "-l", "red", "-h", "green", "--", "-O", "A/C", "-o", "Bat: <left>%"] 10
                     , Run Date "%a %b %_d %k:%M" "date" 10
+		    , Run Com "uname" ["-s", "-r"] "" 0
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ Linux | %cpu% | %memory% * %swap% | %eth0% | %battery% | <fc=#ee9a00>%date%</fc>"
+       , template = "%StdinReader% }{ %uname% | %cpu% | %memory% * %swap% | %eth0% | %battery% | <fc=#ee9a00>%date%</fc> |"
        }
