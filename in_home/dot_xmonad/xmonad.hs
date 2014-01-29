@@ -45,6 +45,11 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) =
     , ((0,0x1008FF03), spawn "xbacklight -dec 5")
     , ((0 ,              xK_Print ), spawn "scrot ~/Images/screen_%Y-%m-%d-%H-%M-%S.png -d 1")
     , ((modMask, xK_Print ), spawn "scrot ~/Images/window_%Y-%m-%d-%H-%M-%S.png -d 1 -u")
+ -- moving workspaces
+    , ((modMask, xK_Left),    prevWS )
+    , ((modMask, xK_Right),   nextWS )
+    , ((modMask .|. shiftMask, xK_Left),  shiftToPrev )
+    , ((modMask .|. shiftMask, xK_Right), shiftToNext )
 	]
     ++ 	
     --
@@ -60,9 +65,9 @@ myLayout = (toggleLayouts $ noBorders Full) $ -- toggle fullscreen
   (layoutHook defaultConfig ||| noBorders tabbed ||| Grid)
   where tabbed = named "Tabbed" $ simpleTabbed
 
-myFocusedBorderColor = "#FFF"
+myFocusedBorderColor = "yellow"
 myBorderColor = "#555"
-myBorderWidth = 2
+myBorderWidth = 1
 
 main = do
       xmproc <- spawnPipe "xmobar"
