@@ -10,9 +10,10 @@ Config { font = "-*-Fixed-Bold-R-Normal-*-13-*-*-*-*-*-*-*"
 		    , Run BatteryP ["BAT0", "BAT1"] ["-t", "<acstatus>", "-L", "10", "-H", "80", "-l", "red", "-h", "green", "--", "-O", "A/C", "-o", "Bat: <left>%"] 10
                     , Run Date "%a %b %_d %k:%M" "date" 10
 		    , Run Com "uname" ["-s", "-r"] "" 0
+		    , Run Com "echo `pacmd list-sinks|grep -A 15 '* index'| awk '/volume: 0:/{ print $3 }'|sed 's/%//'`%" [] "volume" 10
                     , Run StdinReader
                     ]
        , sepChar = "%"
        , alignSep = "}{"
-       , template = "%StdinReader% }{ %uname% | %cpu% | %memory% * %swap% | %eth0% | %battery% | <fc=#ee9a00>%date%</fc> |"
+       , template = "%StdinReader% }{ %uname% | %cpu% | %memory% * %swap% | %eth0% | %battery% |  <fc=#ee9a00>%date%</fc> | Vol: %volume%"
        }

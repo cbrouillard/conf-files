@@ -1,2 +1,2 @@
 #!/bin/bash
-agi xbacklight terminator
+agi xbacklight terminator scrot
