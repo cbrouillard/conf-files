@@ -1,2 +1,2 @@
 #!/bin/bash
-agi xbacklight terminator scrot
+sudo apt-get install xbacklight terminator scrot trayer xmobar 
