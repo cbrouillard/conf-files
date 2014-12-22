@@ -1,0 +1,44 @@
+#!/bin/zsh
+source /home/cyril/Coding/zsh-git-prompt/zshrc.sh
+
+bindkey "^R" history-incremental-search-backward
+
+PROMPT='%n@%m %{$fg_bold[yellow]%}%~%b$(git_super_status)%# '
+#PROMPT="%{$fg[white]%}%n%{$reset_color%}@%{$fg_bold[yellow]%}%m%{$reset_color%}$(git_super_status)%#"
+ZSH_THEME_GIT_PROMPT_CACHE=true
+
+share() {
+        scp -r "$1" cyril@brouillard.me:share/
+        echo "http://brouillard.me/shared/$1"
+}
+
+alias agi='sudo apt-get install '
+alias ags='sudo apt-cache search '
+alias agu='sudo apt-get update && sudo apt-get upgrade '
+alias server='ssh -L5433:localhost:5432 cyril@tacticalwarreport.com'
+alias sshkey='/usr/bin/keychain ~/.ssh/id_?sa && source ~/.keychain/*-sh'
+alias etoile='sudo mount -t cifs -o username=cbrouillard,rw //Etoile/MySQL /home/cyril/Etoile'
+alias public='sudo mount -t cifs -o username=cbrouillard,rw //Etoile/public /home/cyril/Etoile'
+alias syslog='sudo mount -t cifs -o username=cbrouillard //syslog/log /home/cyril/syslog'
+
+
+export ZENV_HOME="/home/cyril/Coding/Tools/zenv"
+#export ZENV_RC=$ZENV_HOME
+#eval "$($ZENV_HOME/bin/zenv init -)"
+
+export JAVA_HOME="/home/cyril/Coding/Tools/java"
+export MAVEN_HOME="/home/cyril/Coding/Tools/maven/bin"
+#export GRAILS_HOME="/home/cyril/Coding/Tools/grails"
+export CABAL_HOME="/home/cyril/.cabal/"
+export ANDROID_HOME="/home/cyril/Coding/Tools/android"
+export ANT_HOME="/home/cyril/Coding/Tools/ant"
+export MAVEN_OPTS="-Xms256m -XX:MaxPermSize=1024m -Xmx2048m"
+export JBOSS_HOME="/home/cyril/Coding/Tools/jboss"
+
+export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME:$CABAL_HOME/bin:$GRAILS_HOME/bin:$ANDROID_HOME/platform-tools/:$ANT_HOME/bin:$ZENV_HOME/bin"
+export WORKSPACE_DIR="/home/cyril/Coding"
+
+eval "$($ZENV_HOME/bin/zenv init -)"
+
+#THIS MUST BE AT THE END OF THE FILE FOR GVM TO WORK!!!
+[[ -s "/home/cyril/.gvm/bin/gvm-init.sh" ]] && source "/home/cyril/.gvm/bin/gvm-init.sh"

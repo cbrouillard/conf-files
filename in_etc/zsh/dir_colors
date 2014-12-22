@@ -1,0 +1,107 @@
+# /etc/dir_colors ou ~/.dir_colors
+# Fichier de configuration des couleurs pour la commande 'ls'
+# Formation Debian GNU/Linux par Alexis de Lattre
+# http://formation-debian.via.ecp.fr/
+
+# Les couleurs sont exprimées sous forme d'une liste de numéros
+# séparés par des points-virgules, sachant qu'il ne doit pas y
+# avoir plus d'un numéro par catégorie.
+
+# Il existe 3 catégories :
+# - Type :
+#   00=normal 01=gras 04=souligné 05=clignotant 07=inversé caractères/fond
+#   08=invisible (?)
+# - Couleur des caractères :
+#   30=noir 31=rouge 32=vert 33=jaune 34=bleu 35=magenta 36=cyan 37=blanc
+# - Couleur du fond
+#   40=noir 41=rouge 42=vert 43=marron 44=bleu 45=magenta 46=cyan 47=gris
+
+# Couleur par défaut globale
+NORMAL 00
+# Couleur par défaut pour les fichiers
+FILE 00
+# Couleur pour les répertoires
+DIR 01;32
+# Couleur pour les liens symboliques
+LINK 36
+# Couleur pour les FIFOs
+FIFO 33
+# Couleur pour les sockets
+SOCK 01;35
+# Couleur pour les block device drivers
+BLK 01;33
+# Couleur pour les character device drivers
+CHR 01;33
+# Couleur pour les fichiers ayant les permissions d'exécution
+EXEC 01;31
+
+# Couleur pour les fichiers selon leur extension
+
+# Fichiers de configuration
+.conf 01;33
+# Fichiers exécutables
+.sh   01;31
+.pl   01;31
+.php3 01;31
+.php  01;31
+# Fichiers compressés
+.tar  36
+.tgz  36
+.txz  36
+.tbz  36
+.arj  36
+.taz  36
+.lzh  36
+.zip  36
+.gz   36
+.bz2  36
+.lzma 36
+.xz   36
+.rar  36
+# Packages
+.deb  33
+.rpm  33
+# Fichiers images
+.jpg  35
+.JPG  35
+.jpeg 35
+.eps  35
+.gif  35
+.png  35
+.bmp  35
+.xpm  35
+.tif  35
+.tiff 35
+.tga  35
+.pcx  35
+.jp2  35
+# Fichiers audio/vidéo
+.avi  32
+.mkv  32
+.mpg  32
+.mov  32
+.mpeg 32
+.vob  32
+.au   32
+.wav  32
+.mp3  32
+.ogg  32
+.ogm  32
+.ogv  32
+.flac 32
+.wmv  32
+.wma  32
+# Fichiers bureautique divers
+.odg  33
+.odc  33
+.ods  33
+.odp  33
+.odd  33
+.doc  33
+.xls  33
+.ppt  33
+.pps  33
+.tex  33
+.pdf  33
+.ps   33
+.djvu 33

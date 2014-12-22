@@ -20,7 +20,7 @@ import XMonad.Layout.NoBorders
 import XMonad.Layout.Tabbed
 import XMonad.Layout.ToggleLayouts
 import XMonad.Util.Run(spawnPipe)
-
+import XMonad.Layout.Groups.Examples
 
 
 myManageHook = composeAll
@@ -30,11 +30,12 @@ myManageHook = composeAll
     , resource  =? "Do"   --> doIgnore
     ]
 
-myWorkspaces  = ["1:www","2:dev","3:exec","4:db","5","6", "7", "8", "9","10", "11", "12:chat"]
+myWorkspaces  = ["1:www","2:dev","3:exec local","4:db","5:mails","6:webservices", "7", "8", "9","10:alpha & ext", "11:services", "12:chat"]
 
 newKeys x = M.union (M.fromList (myKeys x)) (keys azertyConfig x)
 myKeys conf@(XConfig {XMonad.modMask = modMask}) =
     [ ((modMask .|. shiftMask, xK_l), spawn "gnome-screensaver-command --lock")
+    --[ ((modMask .|. shiftMask, xK_l), spawn "xtrlock")
     , ((modMask, xK_quoteleft), spawn "rotatexkbmap") -- with qwerty keyboard
     , ((modMask, xK_twosuperior), spawn "rotatexkbmap") -- with azerty keyboard  
     , ((modMask, xK_p), spawn "exe=`dmenu_run -nb black -nf yellow -sf yellow` && eval \"exec $exe\"")
