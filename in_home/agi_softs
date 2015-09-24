@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt-get install xbacklight terminator scrot trayer xmobar consolekit
+sudo apt-get install xbacklight terminator scrot trayer xmobar consolekit dmenu
