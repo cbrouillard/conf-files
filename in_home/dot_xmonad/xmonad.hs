@@ -88,6 +88,6 @@ main = do
                                     { ppOutput = hPutStrLn xmproc
                                     , ppCurrent = xmobarColor "#19F" "" . wrap "[" "]"
                                     , ppTitle = xmobarColor "pink" "" . shorten 50
-                                    }) >> updatePointer (Relative 0.5 0.5) >> takeTopFocus  
+                                    }) >> updatePointer (0.5, 0.5) (0, 0) >> takeTopFocus  
 }
 
