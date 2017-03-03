@@ -113,7 +113,7 @@ export MAVEN_HOME="/home/cyril/Coding/Tools/apache-maven-3.0.4/bin"
 export GRAILS_HOME="/home/cyril/Coding/Tools/grails-2.0.0"
 export CABAL_HOME="/home/cyril/.cabal/bin/"
 export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME:$CABAL_HOME:$GRAILS_HOME/bin"
-export HAMDIR=/home/cyril/Coding/others/devkit/ham-271-linux-full
+export HAMDIR=/home/cyril/Coding/GBA/ham
 
 # http://henrik.nyh.se/2008/12/git-dirty-prompt
 # http://www.simplisticcomplexity.com/2008/03/13/show-your-git-branch-name-in-your-prompt/
