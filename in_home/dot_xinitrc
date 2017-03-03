@@ -15,6 +15,8 @@ trayer --edge top --align right --SetDockType true --SetPartialStrut true --expa
 volumeicon &
 nm-applet &
 
+feh --bg-scale /home/cyril/Images/wall.jpg
+xcompmgr & 
 # Start XMonad
 exec ck-launch-session xmonad
 pkill -HUP ssh-agent

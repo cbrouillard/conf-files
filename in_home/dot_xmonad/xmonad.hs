@@ -38,7 +38,7 @@ myKeys conf@(XConfig {XMonad.modMask = modMask}) =
     --[ ((modMask .|. shiftMask, xK_l), spawn "xtrlock")
     , ((modMask, xK_quoteleft), spawn "rotatexkbmap") -- with qwerty keyboard
     , ((modMask, xK_twosuperior), spawn "rotatexkbmap") -- with azerty keyboard  
-    , ((modMask, xK_p), spawn "exe=`dmenu_run -nb black -nf yellow -sf yellow` && eval \"exec $exe\"")
+    , ((modMask, xK_p), spawn "exe=`dmenu_run -p launch -nb black -nf yellow -sf yellow` && eval \"exec $exe\"")
     , ((0,0x1008FF11), spawn "pactl set-sink-volume 1 -- -1%")
     , ((0,0x1008FF13), spawn "pactl set-sink-volume 1 +1%")
     , ((0,0x1008FF12), spawn "pactl set-sink-mute 1 toggle")
