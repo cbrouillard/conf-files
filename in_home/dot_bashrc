@@ -88,6 +88,8 @@ alias agup='sudo apt-get upgrade'
 alias app='sudo apt-cache policy'
 alias ags='sudo apt-cache search'
 
+alias sshkeys='keychain ~/.ssh/id_rsa'
+
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -108,11 +110,9 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export JAVA_HOME="/home/cyril/Coding/Tools/jdk1.6.0_29/"
-export MAVEN_HOME="/home/cyril/Coding/Tools/apache-maven-3.0.4/bin"
-export GRAILS_HOME="/home/cyril/Coding/Tools/grails-2.0.0"
-export CABAL_HOME="/home/cyril/.cabal/bin/"
-export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME:$CABAL_HOME:$GRAILS_HOME/bin"
+export JAVA_HOME="/home/cyril/Coding/Tools/jdk/"
+export MAVEN_HOME="/home/cyril/Coding/Tools/maven/bin"
+export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME"
 export HAMDIR=/home/cyril/Coding/GBA/ham
 
 # http://henrik.nyh.se/2008/12/git-dirty-prompt
@@ -127,3 +127,7 @@ function parse_git_branch {
   git branch --no-color 2> /dev/null | sed -e '/^[^*]/d' -e "s/* \(.*\)/[\1$(parse_git_dirty)]/"
 }
 export PS1='\u@\h \[\033[1;33m\]\w\[\033[0m\]$(parse_git_branch)$ '
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="/home/cyril/.sdkman"
+[[ -s "/home/cyril/.sdkman/bin/sdkman-init.sh" ]] && source "/home/cyril/.sdkman/bin/sdkman-init.sh"
