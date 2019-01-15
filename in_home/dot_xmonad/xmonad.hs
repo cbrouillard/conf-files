@@ -21,7 +21,7 @@ import XMonad.Layout.Tabbed
 import XMonad.Layout.ToggleLayouts
 import XMonad.Util.Run(spawnPipe)
 import XMonad.Layout.Groups.Examples
-
+import XMonad.Hooks.EwmhDesktops
 
 myManageHook = composeAll
     [ resource  =? "Firefox"       --> doFloat
@@ -72,7 +72,7 @@ myBorderWidth = 1
 
 main = do
       xmproc <- spawnPipe "xmobar"
-      xmonad $ withUrgencyHook NoUrgencyHook $ azertyConfig {
+      xmonad $ ewmh $ withUrgencyHook NoUrgencyHook $ azertyConfig {
                            --manageHook = myManageHook <+> manageHook defaultConfig,
                           manageHook = manageDocks <+> manageHook defaultConfig,
                           keys = newKeys,
