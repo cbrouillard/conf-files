@@ -82,9 +82,9 @@ alias ll='ls -alF'
 alias la='ls -A'
 alias l='ls -CF'
 
-alias agu='sudo apt-get update'
-alias agi='sudo apt-get install'
-alias agup='sudo apt-get upgrade'
+alias agu='sudo apt update'
+alias agi='sudo apt install'
+alias agup='sudo apt upgrade'
 alias app='sudo apt-cache policy'
 alias ags='sudo apt-cache search'
 
@@ -110,9 +110,6 @@ if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
     . /etc/bash_completion
 fi
 
-export JAVA_HOME="/home/cyril/Coding/Tools/jdk/"
-export MAVEN_HOME="/home/cyril/Coding/Tools/maven/bin"
-export PATH="$PATH:$JAVA_HOME/bin:$MAVEN_HOME"
 export HAMDIR=/home/cyril/Coding/GBA/ham
 
 # http://henrik.nyh.se/2008/12/git-dirty-prompt

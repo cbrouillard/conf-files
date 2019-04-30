@@ -9,14 +9,18 @@ fi
 #setxkbmap fr
 gnome-screensaver &
 gnome-settings-daemon &
-trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 0 --tint 0x555555 --height 17 & 
+trayer --edge top --align right --SetDockType true --SetPartialStrut true --expand true --width 10 --transparent true --alpha 0 --tint 0x555555 --height 17 --monitor primary & 
 
 #gnome-sound-applet &
+#pulseaudio --start
 volumeicon &
 nm-applet &
 
 feh --bg-scale /home/cyril/Images/wall.jpg
 xcompmgr & 
+
+xsetroot -cursor_name left_ptr
+
 # Start XMonad
 exec ck-launch-session xmonad
 pkill -HUP ssh-agent
