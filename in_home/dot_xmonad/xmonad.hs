@@ -30,7 +30,7 @@ myManageHook = composeAll
     , resource  =? "Do"   --> doIgnore
     ]
 
-myWorkspaces  = ["1:www","2:dev","3:exec local","4:db","5:mails","6:webservices", "7", "8", "9","10:alpha & ext", "11:services", "12:chat"]
+myWorkspaces  = ["1:www","2:dev","3:exec local","4:db","5:mails","6", "7", "8", "9","10:perso", "11:music", "12:chat"]
 
 newKeys x = M.union (M.fromList (myKeys x)) (keys azertyConfig x)
 myKeys conf@(XConfig {XMonad.modMask = modMask}) =
@@ -72,7 +72,7 @@ myBorderWidth = 1
 
 main = do
       xmproc <- spawnPipe "xmobar"
-      xmonad $ ewmh $ withUrgencyHook NoUrgencyHook $ azertyConfig {
+      xmonad $ ewmh $ withUrgencyHook NoUrgencyHook $ docks $ azertyConfig {
                            --manageHook = myManageHook <+> manageHook defaultConfig,
                           manageHook = manageDocks <+> manageHook defaultConfig,
                           keys = newKeys,
