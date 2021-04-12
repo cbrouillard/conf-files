@@ -1,0 +1,2 @@
+#!/bin/bash
+sudo apt install xbacklight terminator scrot trayer xmobar dmenu volumeicon-alsa feh xcompmgr gnome-settings-daemon xmonad keychain redshift-gtk jq arandr gnome-screensaver
