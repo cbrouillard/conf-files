@@ -1,2 +1,2 @@
 #!/bin/bash
-sudo apt install powerline xbacklight terminator scrot trayer xmobar dmenu volumeicon-alsa feh xcompmgr gnome-settings-daemon xmonad keychain redshift-gtk jq arandr gnome-screensaver
+sudo apt install powerline powerline-gitstatus xbacklight terminator scrot trayer xmobar dmenu volumeicon-alsa feh xcompmgr gnome-settings-daemon xmonad keychain redshift-gtk jq arandr gnome-screensaver
